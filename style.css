@@ -1,0 +1,96 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+    line-height: 2;
+    color: white;
+    height: 100vh;
+}
+
+.container {
+    background-color: rgb(48, 47, 47);
+    width: 400px;
+    height: 550px;
+    display: flex;
+    border-radius: 10px;
+}
+
+.calculator {
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.calculator-display {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: end;
+    height: 20%;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.display-buffer {
+    background-color: rgb(48, 47, 47);
+    height: 30%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    opacity: 0.5;
+    font-size: 15px;
+}
+
+.display-monitor {
+    background-color: rgb(48, 47, 47);
+    height: 70%;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.calculator-keyboard {
+    height: 80%;
+    margin: auto;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 80px);
+    grid-template-rows: repeat(5, 70px);
+    gap: 10px;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(87, 76, 76);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.operation {
+    background-color: rgb(155, 151, 151);
+}
+
+.button:hover {
+    background-color: rgb(155, 151, 151);
+}
+
+.operation:hover {
+    background-color: rgb(158, 130, 130);
+}
