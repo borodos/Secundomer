@@ -159,7 +159,7 @@ function addOperation(e) {
             if (displayBufferText[displayBufferText.length] != '+') {
                 console.log('message')
                 displayBuffer.innerText = displayBufferText.join('');
-                displayBuffer.innerText = displayBuffer.innerText.replace(displayBuffer.innerText[displayBuffer.innerText.length - 1], '+')
+                displayBuffer.innerText = displayBuffer.innerText.replace(displayBuffer.innerText[displayBuffer.innerText.length - 1], '+');
             }
             result = buffer.reduce((box, element) => {
                 return box += element;
