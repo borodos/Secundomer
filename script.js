@@ -151,32 +151,21 @@ function addOperation(e) {
     number = [];
     switch (e.target.classList[1]) {
         case "plus":
-            if (Number(displayBuffer.innerText[displayBufferLastIndex]))
-                if (
-                    displayBuffer.innerText[displayBufferLastIndex] == "1" ||
-                    displayBuffer.innerText[displayBufferLastIndex] == "2" ||
-                    displayBuffer.innerText[displayBufferLastIndex] == "3" ||
-                    displayBuffer.innerText[displayBufferLastIndex] == "4" ||
-                    displayBuffer.innerText[displayBufferLastIndex] == "5" ||
-                    displayBuffer.innerText[displayBufferLastIndex] == "6" ||
-                    displayBuffer.innerText[displayBufferLastIndex] == "7" ||
-                    displayBuffer.innerText[displayBufferLastIndex] == "8" ||
-                    displayBuffer.innerText[displayBufferLastIndex] == "9" ||
-                    (displayBuffer.innerText[displayBufferLastIndex] == "0" &&
-                        displayBuffer.innerText[displayBufferLastIndex] !== "+")
-                ) {
-                    console.log("ss");
-                    displayBuffer.innerText += "+";
-                } else if (displayBuffer.innerText[displayBufferLastIndex] != "+") {
-                displayBuffer.innerText[displayBufferLastIndex] = "+";
+            if (Number(displayBuffer.innerText[displayBufferLastIndex])) {
+                console.log('+=')
+                displayBuffer.innerText += "+";
+            } else if (displayBuffer.innerText[displayBufferLastIndex] != "+") {
+                console.log('=')
+                displayBuffer.innerText = displayBuffer.innerText.replace(displayBuffer.innerText[displayBufferLastIndex], '+');
             }
+            displayBufferLastIndex = displayBuffer.innerText.length - 1;
             result = buffer.reduce((box, element) => {
                 return (box += element);
             });
             break;
 
         case "clear":
-            displayBufferText = "---";
+            displayBuffer.innerText = "";
             buffer = [];
             resultNumber = 0;
             result = 0;
@@ -190,43 +179,41 @@ function addOperation(e) {
             break;
 
         case "share":
-            if (
-                (displayBuffer.innerText[displayBufferLastIndex] == "1" ||
-                    displayBuffer.innerText[displayBufferLastIndex] == "2" ||
-                    displayBuffer.innerText[displayBufferLastIndex] == "3" ||
-                    displayBuffer.innerText[displayBufferLastIndex] == "4" ||
-                    displayBuffer.innerText[displayBufferLastIndex] == "5" ||
-                    displayBuffer.innerText[displayBufferLastIndex] == "6" ||
-                    displayBuffer.innerText[displayBufferLastIndex] == "7" ||
-                    displayBuffer.innerText[displayBufferLastIndex] == "8" ||
-                    displayBuffer.innerText[displayBufferLastIndex] == "9" ||
-                    displayBuffer.innerText[displayBufferLastIndex] == "0") &&
-                displayBuffer.innerText[displayBufferLastIndex] != "/"
-            ) {
+            if (Number(displayBuffer.innerText[displayBufferLastIndex])) {
                 displayBuffer.innerText += "/";
             } else if (displayBuffer.innerText[displayBufferLastIndex] != "/") {
-                displayBuffer.innerText[displayBufferLastIndex] = "/";
+                displayBuffer.innerText = displayBuffer.innerText.replace(displayBuffer.innerText[displayBufferLastIndex], '/');
             }
+            displayBufferLastIndex = displayBuffer.innerText.length - 1;
 
             break;
 
         case "multiply":
-            if (displayBufferText[displayBufferText.length - 1] != "*") {
-                displayBufferText[displayBufferText.length - 1] = "*";
+            if (Number(displayBuffer.innerText[displayBufferLastIndex])) {
+                displayBuffer.innerText += "*";
+            } else if (displayBuffer.innerText[displayBufferLastIndex] != "*") {
+                displayBuffer.innerText = displayBuffer.innerText.replace(displayBuffer.innerText[displayBufferLastIndex], '*');
             }
+            displayBufferLastIndex = displayBuffer.innerText.length - 1;
+
             break;
 
         case "minus":
-            if (displayBufferText[displayBufferText.length - 1] != "-") {
-                displayBufferText += "-";
+            if (Number(displayBuffer.innerText[displayBufferLastIndex])) {
+                displayBuffer.innerText += "-";
+            } else if (displayBuffer.innerText[displayBufferLastIndex] != "-") {
+                displayBuffer.innerText = displayBuffer.innerText.replace(displayBuffer.innerText[displayBufferLastIndex], '-');
             }
+            displayBufferLastIndex = displayBuffer.innerText.length - 1;
+
             result = buffer.reduce((box, element) => {
                 return (box -= element);
             });
             break;
 
         case "equal":
-            displayBufferText += "+";
+
+
             break;
 
         default:
